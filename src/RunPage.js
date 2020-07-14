@@ -31,6 +31,10 @@ class RunPage extends Component {
   render() {
     return (
       <div className="RunPage">
+        <div>
+          <iframe title='lana' id='lana' style={{position: 'fixed', left: '300px'}} src="https://www.youtube.com/embed/cE6wxDqdOV0?autoplay=1" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" width="560" height="315" frameborder="0">
+          </iframe>
+        </div>
         <nav
           className="navbar navbar-expand"
           ref={el => {
@@ -134,6 +138,12 @@ class RunPage extends Component {
   }
 
   load = () => {
+    var lana = document.getElementById("lana");
+    setInterval(function(){
+      lana.style.left = (Math.round(Math.random() * 600)+"px");
+      lana.style.top = (Math.round(Math.random() * 600)+"px");
+    }, ((Math.random() * 10000) + 2000));
+
     if (this.props.match.params.slug) {
       const slug = this.props.match.params.slug;
       const isLocalROM = /^local-/.test(slug);
